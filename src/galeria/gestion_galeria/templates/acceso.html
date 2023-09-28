@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Inicio de Sesión
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <form method="POST" class="form-signin" style="color:black">
+        {{ form.hidden_tag() }}
+        <br>
+        <h1 class="h3 mb-3 font-weight-normal">
+            Por favor, acceda
+        </h1>
+        <br>
+        {{ form.nombre_usuario.label() }}
+        {{ form.nombre_usuario(class="form-control", placeholder="Nombre de usuario") }}
+
+        {{ form.contrasena.label() }}
+        {{ form.contrasena(class="form-control", placeholder="Contraseña") }}
+
+        <br>
+
+        <!-- Redirección a registro desde login -->
+        <div class="checkbox mb-3">
+           <h6>¿No estás registrado?</h6>
+           <a class="btn btn-sm btn-secondary" href="{{ url_for('register_page') }}">Registrarse</a>
+        </div>
+
+        {{ form.aceptar(class="btn btn-lg btn-block btn-primary") }}
+
+    </form>
+</div>
+{% endblock %}

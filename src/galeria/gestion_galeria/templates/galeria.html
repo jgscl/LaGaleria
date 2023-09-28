@@ -1,0 +1,399 @@
+{% extends 'base.html' %}
+{% block title %}
+La Galería
+{% endblock %}
+{% block content %}
+<nav class="navbar navbar-expand-md nav justify-content-center">
+    <div>
+        <form method="GET" style="margin-right: 20px;" action="{{ url_for('galeria_page') }}">
+            <button class="btn btn-secondary" type="submit" aria-haspopup="true">
+                Limpiar Filtros
+            </button>
+        </form>
+    </div>
+    <div class="row">
+        <form method="POST" class="row" action="{{ url_for('galeria_page') }}">
+            <!--Prenda-->
+            <div class="dropdown col-sm">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    Prenda
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <label for="americana" onclick="event.stopPropagation()">
+                        <div class="dropdown-item">
+                            <input type="checkbox" name="prenda" value="americana" id="americana">
+                            <label for="americana">Americana</label>
+                        </div>
+                    </label>
+                    <label for="blazer" onclick="event.stopPropagation()">
+                        <div class="dropdown-item">
+                            <input type="checkbox" name="prenda" value="blazer" id="blazer">
+                            <label for="blazer">Blazer</label>
+                        </div>
+                    </label>
+                    <label for="blusa" onclick="event.stopPropagation()">
+                        <div class="dropdown-item">
+                            <input type="checkbox" name="prenda" value="blusa" id="blusa">
+                            <label for="blusa">Blusa</label>
+                        </div>
+                    </label>
+                    <label for="camisa" onclick="event.stopPropagation()">
+                        <div class="dropdown-item">
+                            <input type="checkbox" name="prenda" value="camisa" id="camisa">
+                            <label for="camisa">Camisa</label>
+                        </div>
+                    </label>
+                    <label for="camiseta" onclick="event.stopPropagation()">
+                        <div class="dropdown-item">
+                            <input type="checkbox" name="prenda" value="camiseta" id="camiseta">
+                            <label for="camiseta">Camiseta</label>
+                        </div>
+                    </label>
+                    <label for="chaqueta" onclick="event.stopPropagation()">
+                        <div class="dropdown-item">
+                            <input type="checkbox" name="prenda" value="chaqueta" id="chaqueta">
+                            <label for="chaqueta">Chaqueta</label>
+                        </div>
+                    </label>
+                    <label for="falda" onclick="event.stopPropagation()">
+                        <div class="dropdown-item">
+                            <input type="checkbox" name="prenda" value="falda" id="falda">
+                            <label for="falda">Falda</label>
+                        </div>
+                    </label>
+                    <label for="jerséi" onclick="event.stopPropagation()">
+                        <div class="dropdown-item">
+                            <input type="checkbox" name="prenda" value="jerséi" id="jerséi">
+                            <label for="jerséi">Jerséi</label>
+                        </div>
+                    </label>
+                    <label for="mono" onclick="event.stopPropagation()">
+                        <div class="dropdown-item">
+                            <input type="checkbox" name="prenda" value="mono" id="mono">
+                            <label for="mono">Mono</label>
+                        </div>
+                    </label>
+                    <label for="pantalón" onclick="event.stopPropagation()">
+                        <div class="dropdown-item">
+                            <input type="checkbox" name="prenda" value="pantalón" id="pantalón">
+                            <label for="pantalón">Pantalón</label>
+                        </div>
+                    </label>
+                    <label for="sudadera" onclick="event.stopPropagation()">
+                        <div class="dropdown-item">
+                            <input type="checkbox" name="prenda" value="sudadera" id="sudadera">
+                            <label for="sudadera">Sudadera</label>
+                        </div>
+                    </label>
+                    <label for="top" onclick="event.stopPropagation()">
+                        <div class="dropdown-item">
+                            <input type="checkbox" name="prenda" value="top" id="top">
+                            <label for="top">Top</label>
+                        </div>
+                    </label>
+                    <label for="vestido" onclick="event.stopPropagation()">
+                        <div class="dropdown-item">
+                            <input type="checkbox" name="prenda" value="vestido" id="vestido">
+                            <label for="vestido">Vestido</label>
+                        </div>
+                    </label>
+                </div>
+            </div>
+            <!--Genero-->
+            <div class="dropdown col-sm">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    Género
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <label for="hombre" onclick="event.stopPropagation()">
+                        <div class="dropdown-item">
+                            <input type="checkbox" name="genero" value="hombre" id="hombre">
+                            <label for="hombre">Hombre</label>
+                        </div>
+                    </label>
+                    <label for="mujer" onclick="event.stopPropagation()">
+                        <div class="dropdown-item">
+                            <input type="checkbox" name="genero" value="mujer" id="mujer">
+                            <label for="mujer">Mujer</label>
+                        </div>
+                    </label>
+                </div>
+            </div>
+            <!--Color-->
+            <div class="dropdown col-sm">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    Color
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <label for="negro" onclick="event.stopPropagation()">
+                        <div class="dropdown-item">
+                            <input type="checkbox" name="color" value="negro" id="negro">
+                            <label style="color: black;" for="negro">Negro</label>
+                        </div>
+                    </label>
+                    <label for="gris" onclick="event.stopPropagation()">
+                        <div class="dropdown-item">
+                            <input type="checkbox" name="color" value="gris" id="gris">
+                            <label style="color: grey;" for="gris">Gris</label>
+                        </div>
+                    </label>
+                    <label for="beige" onclick="event.stopPropagation()">
+                        <div class="dropdown-item">
+                            <input type="checkbox" name="color" value="beige" id="beige">
+                            <label style="color: beige;" for="beige">Beige</label>
+                        </div>
+                    </label>
+                    <label for="marron" onclick="event.stopPropagation()">
+                        <div class="dropdown-item">
+                            <input type="checkbox" name="color" value="marron" id="marron">
+                            <label style="color: brown;" for="marron">Marrón</label>
+                        </div>
+                    </label>
+                    <label for="azul" onclick="event.stopPropagation()">
+                        <div class="dropdown-item">
+                            <input type="checkbox" name="color" value="azul" id="azul">
+                            <label style="color: deepskyblue;" for="azul">Azul</label>
+                        </div>
+                    </label>
+                    <label for="verde" onclick="event.stopPropagation()">
+                        <div class="dropdown-item">
+                            <input type="checkbox" name="color" value="verde" id="verde">
+                            <label style="color: forestgreen;" for="verde">Verde</label>
+                        </div>
+                    </label>
+                    <label for="amarillo" onclick="event.stopPropagation()">
+                        <div class="dropdown-item">
+                            <input type="checkbox" name="color" value="amarillo" id="amarillo">
+                            <label style="color: yellow;" for="amarillo">Amarillo</label>
+                        </div>
+                    </label>
+                    <label for="naranja" onclick="event.stopPropagation()">
+                        <div class="dropdown-item">
+                            <input type="checkbox" name="color" value="naranja" id="naranja">
+                            <label style="color: orange;" for="naranja">Naranja</label>
+                        </div>
+                    </label>
+                    <label for="rojo" onclick="event.stopPropagation()">
+                        <div class="dropdown-item">
+                            <input type="checkbox" name="color" value="rojo" id="rojo">
+                            <label style="color: tomato;" for="rojo">Rojo</label>
+                        </div>
+                    </label>
+                    <label for="rosa" onclick="event.stopPropagation()">
+                        <div class="dropdown-item">
+                            <input type="checkbox" name="color" value="rosa" id="rosa">
+                            <label style="color: pink;" for="rosa">Rosa</label>
+                        </div>
+                    </label>
+                    <label for="morado" onclick="event.stopPropagation()">
+                        <div class="dropdown-item">
+                            <input type="checkbox" name="color" value="morado" id="morado">
+                            <label style="color: purple;" for="morado">Morado</label>
+                        </div>
+                    </label>
+                    <label for="plateado" onclick="event.stopPropagation()">
+                        <div class="dropdown-item">
+                            <input type="checkbox" name="color" value="plateado" id="plateado">
+                            <label style="color: silver;" for="plateado">Plateado</label>
+                        </div>
+                    </label>
+                    <label for="dorado" onclick="event.stopPropagation()">
+                        <div class="dropdown-item">
+                            <input type="checkbox" name="color" value="dorado" id="dorado">
+                            <label style="color: gold;" for="dorado">Dorado</label>
+                        </div>
+                    </label>
+                    <label for="blanco" onclick="event.stopPropagation()">
+                        <div class="dropdown-item">
+                            <input type="checkbox" name="color" value="blanco" id="blanco">
+                            <label style="color: black;" for="blanco">Blanco</label>
+                        </div>
+                    </label>
+                    <label for="multicolor" onclick="event.stopPropagation()">
+                        <div class="dropdown-item">
+                            <input type="checkbox" name="color" value="multicolor" id="multicolor">
+                            <label style="color: lime;" for="multicolor">Mul</label>
+                            <label style="color: cyan;" for="multicolor">ti</label>
+                            <label style="color: orange;" for="multicolor">co</label>
+                            <label style="color: magenta;" for="multicolor">lor</label>
+                        </div>
+                    </label>
+                    <label for="desconocido" onclick="event.stopPropagation()">
+                        <div class="dropdown-item">
+                            <input type="checkbox" name="color" value="desconocido" id="desconocido">
+                            <label style="color: black;" for="desconocido">Desconocido</label>
+                        </div>
+                    </label>
+                </div>
+            </div>
+            <!--Marca-->
+            <div class="dropdown col-sm">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    Marca
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <label for="carhartt" onclick="event.stopPropagation()">
+                        <div class="dropdown-item">
+                            <input type="checkbox" name="marca" value="carhartt" id="carhartt">
+                            <label for="carhartt">Carhartt</label>
+                        </div>
+                    </label>
+                    <label for="h&m" onclick="event.stopPropagation()">
+                        <div class="dropdown-item">
+                            <input type="checkbox" name="marca" value="h&m" id="h&m">
+                            <label for="h&m">H&M</label>
+                        </div>
+                    </label>
+                    <label for="zara" onclick="event.stopPropagation()">
+                        <div class="dropdown-item">
+                            <input type="checkbox" name="marca" value="zara" id="zara">
+                            <label for="zara">Zara</label>
+                        </div>
+                    </label>
+                </div>        
+            </div>
+            <!--Composicion-->
+            <div class="dropdown col-sm">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    Composición
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <label for="algodón" onclick="event.stopPropagation()">
+                        <div class="dropdown-item">
+                            <input type="checkbox" name="composicion" value="algodón" id="algodón">
+                            <label for="algodón">Algodón</label>
+                        </div>
+                    </label>
+                    <label for="lana" onclick="event.stopPropagation()">
+                        <div class="dropdown-item">
+                            <input type="checkbox" name="composicion" value="lana" id="lana">
+                            <label for="lana">Lana</label>
+                        </div>
+                    </label>
+                    <label for="piel" onclick="event.stopPropagation()">
+                        <div class="dropdown-item">
+                            <input type="checkbox" name="composicion" value="piel" id="piel">
+                            <label for="piel">Piel</label>
+                        </div>
+                    </label>
+                    <label for="lino" onclick="event.stopPropagation()">
+                        <div class="dropdown-item">
+                            <input type="checkbox" name="composicion" value="lino" id="lino">
+                            <label for="lino">Lino</label>
+                        </div>
+                    </label>
+                    <label for="poliéster" onclick="event.stopPropagation()">
+                        <div class="dropdown-item">
+                            <input type="checkbox" name="composicion" value="poliéster" id="poliéster">
+                            <label for="poliéster">Poliéster</label>
+                        </div>
+                    </label>
+                    <label for="viscosa" onclick="event.stopPropagation()">
+                        <div class="dropdown-item">
+                            <input type="checkbox" name="composicion" value="viscosa" id="viscosa">
+                            <label for="viscosa">Viscosa</label>
+                        </div>
+                    </label>
+                </div>
+            </div>
+            <!-- Ordenación -->
+            <div class="dropdown col-sm">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    Ordenar por:
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <label for="preciomenor" onclick="event.stopPropagation()">
+                        <div class="dropdown-item">
+                            <input type="radio" name="ordenar" value="preciomenor" id="preciomenor">
+                            <label for="preciomenor">Precio (menor a mayor)</label>
+                        </div>
+                    </label>
+                    <label for="preciomayor" onclick="event.stopPropagation()">
+                        <div class="dropdown-item">
+                            <input type="radio" name="ordenar" value="preciomayor" id="preciomayor">
+                            <label for="preciomayor">Precio (mayor a menor)</label>
+                        </div>
+                    </label>
+                </div>
+            </div> 
+            <button type="submit" class="btn btn-primary col-sm">Buscar</button>               
+        </form>
+    </div>
+</nav>
+
+{% set contador_items = 0 %}
+{% for fila in range(filas) %}
+{% set contador_items = 4 * (loop.index - 1)%}
+<ul class="list-group list-group-horizontal justify-content-center">
+    {% if fila == filas - 1 and resto != 0 %}
+    {% for i in range(resto) %}
+    {% set contador_items = contador_items + loop.index - 1%}
+    <li class="list-group-item d-flex justify-content-center" style="justify-content: center;">
+        <a href="{{ url_for('item_page', item_id=paginas.items[contador_items].id) }}">
+            <div>
+                <img src="http://212.128.144.172:5000/obtener_imagen?id={{ paginas.items[contador_items].id }}&miniatura=1">
+            </div>
+            <div>
+                {{ paginas.items[contador_items].nombre }}
+            </div>
+            <div>
+                {{ paginas.items[contador_items].precio }}€
+            </div>
+        </a>
+    </li>
+    {% endfor %}
+    {% else %}
+    {% for i in range(4) %}
+    {% set contador_items = loop.index + contador_items - 1%}
+    <li class="list-group-item d-flex justify-content-center">
+        <a href="{{ url_for('item_page', item_id=paginas.items[contador_items].id) }}">
+            <div>
+                <img src="http://212.128.144.172:5000/obtener_imagen?id={{ paginas.items[contador_items].id }}&miniatura=1">
+            </div>
+            <div>
+                {{ paginas.items[contador_items].nombre }}
+            </div>
+            <div>
+                {{ paginas.items[contador_items].precio }}€
+            </div>
+        </a>
+    </li>
+    {% endfor %}
+    {% endif %}
+</ul>
+{% endfor %}
+
+<nav aria-label="...">
+    <ul class="pagination justify-content-center">
+        <li class="page-item {% if not paginas.has_prev %} disabled {% endif %}">
+            <a class="page-link" href="{{ url_for('galeria_page', page=paginas.prev_num) }}">Anterior</a>
+        </li>
+
+        {% for pagina in paginas.iter_pages(left_edge=3, right_edge=1) %}
+            {% if pagina %}
+                <li class="page-item {% if pagina == paginas.page %} active {% endif %}">
+                    <a class="page-link" href="{{ url_for('galeria_page', page=pagina) }}">
+                        {{ pagina }}
+                    </a>
+                </li>
+            {% else %}
+                <li class="page-item disabled">
+                    <span class="page-link">...</span>
+                </li>
+            {% endif %}
+        {% endfor %}
+        
+        <li class="page-item {% if not paginas.has_next %} disabled {% endif %}">
+            <a class="page-link" href="{{ url_for('galeria_page', page=paginas.next_num) }}">Siguiente</a>
+        </li>
+    </ul>
+</nav>
+
+
+{% endblock %}

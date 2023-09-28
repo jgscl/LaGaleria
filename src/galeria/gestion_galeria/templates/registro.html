@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Registro
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <form method="POST" class="form-register" style="color:black">
+            <!-- Proteccion contra ataque CSRF. Genera un token -->
+            {{ form.hidden_tag() }}
+            <br>
+            <h1 class="h3 mb-3 font-weight-normal">
+                Crear Nueva Cuenta
+            </h1>
+            <br>
+            {{ form.nombre_usuario.label() }}
+            {{ form.nombre_usuario(class="form-control", placeholder="Nombre de Usuario") }}
+
+            {{ form.email.label() }}
+            {{ form.email(class="form-control", placeholder="Correo Electrónico") }}
+
+            {{ form.contrasena.label() }}
+            {{ form.contrasena(class="form-control", placeholder="Contraseña") }}
+
+            {{ form.conf_contrasena.label() }}
+            {{ form.conf_contrasena(class="form-control", placeholder="Confirmar Contraseña") }}
+
+            <br>
+
+            <!-- Redirección a registro desde login -->
+            <div class="checkbox mb-3">
+            <h6>¿Ya tienes una cuenta?</h6>
+            <a class="btn btn-sm btn-secondary" href="{{ url_for('login_page') }}">Accede a la página web</a>
+            </div>
+
+            <br>
+            {{ form.aceptar(class="btn btn-lg btn-block btn-primary") }}
+        </form>
+    </div>
+{% endblock %}

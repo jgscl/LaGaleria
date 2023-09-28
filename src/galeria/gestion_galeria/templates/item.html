@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ item.nombre }}
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-sm">
+        <img src="http://localhost:5000/obtener_imagen?id={{ item.id }}&miniatura=0">
+    </div>
+    <div class="col-sm">
+        <h3>
+            <strong>{{ item.nombre }}</strong>
+        </h3>
+        <h3>
+            {{ item.precio }} €
+        </h3>
+        <p>
+            {{ item.descripcion }}
+        </p>
+        <p>
+            Género: {{ item.genero }}
+        </p>
+        <p>
+            Marca: {{ item.marca }}
+        </p>
+        <p>
+            Color:
+            {% if item.color == 'sin_color' %}
+                desconocido
+            {% else %}
+                {{ item.color }}
+            {% endif %}
+        </p>
+        <p>
+            Composición principal: 
+            {% if item.composicion == 'sin_composicion' %}
+                desconocida
+            {% else %}
+                {{ item.composicion }}
+            {% endif %}
+        </p>
+        <a href="{{ item.url }}" target="_blank">
+            <button>
+                Ver en Sitio Original
+            </button>
+        </a>
+    </div>
+</div>
+{% endblock %}
