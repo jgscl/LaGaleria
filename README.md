@@ -19,11 +19,16 @@ The "src" directory contains two directories itself. The "prendas" directory has
 algorithm code and the "galeria" directory has all the code related to the web application.
 
 ## Documentation
-[Memoria Principal](docs/Memoria.pdf) - The theoretical concepts behind the project, the technology used and the process followed to develop the software.<br>
-[Anexo I - Plan de Proyecto del Software](docs/Anexo_I.pdf) - The schedule followed during the whole process.<br>
-[Anexo II - Especificción de Requisitos del Software](docs/Anexo_II.pdf) - The first part of Software Engineering process. Requisites capturation and analysis phase.<br>
-[Anexo III - Especificación de Diseño](docs/Anexo_III.pdf) - The second part of the Software Engineering process. Design and Implementation.<br>
-[Anexo IV - Documentación Técnica de Programación](docs/Anexo_IV.pdf) - The code documentation. It contains information in detail about the classes and methods used.<br>
+[Memoria Principal](docs/Memoria.pdf) - The theoretical concepts behind the project, the technology used and the process followed to develop the software.
+
+[Anexo I - Plan de Proyecto del Software](docs/Anexo_I.pdf) - The schedule followed during the whole process.
+
+[Anexo II - Especificción de Requisitos del Software](docs/Anexo_II.pdf) - The first part of Software Engineering process. Requisites capturation and analysis phase.
+
+[Anexo III - Especificación de Diseño](docs/Anexo_III.pdf) - The second part of the Software Engineering process. Design and Implementation.
+
+[Anexo IV - Documentación Técnica de Programación](docs/Anexo_IV.pdf) - The code documentation. It contains information in detail about the classes and methods used.
+
 [Anexo V - Manual de Usuario](docs/Anexo_V.pdf.pdf) - The main functionalities of the application and an installation manual.
 
 ## Final Grade
